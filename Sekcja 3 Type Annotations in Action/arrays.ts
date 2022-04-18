@@ -8,3 +8,7 @@ const myCar = carMaker.pop();
 const samArr = carMaker.map((car): string => {
   return car;
 });
+
+const importandDates: (Date | string)[] = [];
+importandDates.push("2030-05-06");
+importandDates.push(new Date());
