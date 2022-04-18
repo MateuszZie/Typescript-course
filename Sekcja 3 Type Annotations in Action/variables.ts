@@ -24,10 +24,18 @@ const json = '{"x": 10, "y": 20}';
 const coordiantes: { x: number; y: number } = JSON.parse(json);
 console.log(coordiantes);
 
-let words: string[] = ["red", "blue", "green"];
+let words = ["red", "blue", "green"];
 let foundWord: boolean;
 for (let i = 0; i < words.length; i++) {
   if (words[i] === "blue") {
     foundWord = true;
+  }
+}
+
+let numbers = [-1, -20, 10];
+let numberAboveZero: boolean | number = false;
+for (let i = 0; i < numbers.length; i++) {
+  if (numbers[i] > 0) {
+    numberAboveZero = numbers[i];
   }
 }
