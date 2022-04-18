@@ -1,15 +1,17 @@
+interface Vehicle {
+  name: string;
+  year: number;
+  brooken: boolean;
+}
+
 const oldCivic = {
   name: "civic",
   year: 2000,
   brooken: true,
 };
 
-const printVehicle = (vechicle: {
-  name: string;
-  year: number;
-  brooken: boolean;
-}): void => {
-  console.log(vechicle.name, vechicle.year, vechicle.brooken);
+const printVehicle = (vehicle: Vehicle): void => {
+  console.log(vehicle.name, vehicle.year, vehicle.brooken);
 };
 
 printVehicle(oldCivic);
