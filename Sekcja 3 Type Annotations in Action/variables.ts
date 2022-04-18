@@ -23,3 +23,11 @@ const logNumber: (i: number) => void = (i: number) => console.log(i);
 const json = '{"x": 10, "y": 20}';
 const coordiantes: { x: number; y: number } = JSON.parse(json);
 console.log(coordiantes);
+
+let words: string[] = ["red", "blue", "green"];
+let foundWord: boolean;
+for (let i = 0; i < words.length; i++) {
+  if (words[i] === "blue") {
+    foundWord = true;
+  }
+}
