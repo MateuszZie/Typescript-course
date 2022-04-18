@@ -1,7 +1,4 @@
-interface Vehicle {
-  name: string;
-  year: number;
-  brooken: boolean;
+interface Reportabel {
   summary(): string;
 }
 
@@ -14,8 +11,18 @@ const oldCivic = {
   },
 };
 
-const printVehicle = (vehicle: Vehicle): void => {
-  console.log(vehicle.summary);
+const drink2 = {
+  color: "brown",
+  carbonate: true,
+  sugar: 40,
+  summary(): string {
+    return `${this.color + " " + this.carbonate + " " + this.sugar}`;
+  },
 };
 
-printVehicle(oldCivic);
+const printSummary = (item: Reportabel): void => {
+  console.log(item.summary);
+};
+
+printSummary(oldCivic);
+printSummary(drink2);
