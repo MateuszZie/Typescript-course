@@ -1,4 +1,4 @@
-let apples: number = 5;
+let apples = 5;
 let speed: string = "fast";
 let hasName: boolean = true;
 
@@ -21,5 +21,5 @@ let point: { x: number; y: number } = {
 const logNumber: (i: number) => void = (i: number) => console.log(i);
 
 const json = '{"x": 10, "y": 20}';
-const coordiantes = JSON.parse(json);
+const coordiantes: { x: number; y: number } = JSON.parse(json);
 console.log(coordiantes);
