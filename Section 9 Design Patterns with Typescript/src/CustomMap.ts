@@ -22,12 +22,18 @@ export class CustomMap {
   }
 
   addMarker(mapapble: Mappable): void {
-    new google.maps.Marker({
+    const marker = new google.maps.Marker({
       map: this.googleMap,
       position: {
         lat: mapapble.location.lat,
         lng: mapapble.location.lng,
       },
+    });
+
+    marker.addListener("click", function () {
+      new google.maps.InfoWindow({
+        content: "Hi there!",
+      }).open(this.googleMap, marker);
     });
   }
 }
