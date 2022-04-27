@@ -60,7 +60,7 @@ export class LinkedList implements Sortable {
   swap(leftIndex: number, rightInde: number): void {
     const leftHand = this.at(leftIndex).value;
     this.at(leftIndex).value = this.at(rightInde).value;
-    this.at(leftIndex).value = leftHand;
+    this.at(rightInde).value = leftHand;
   }
 
   print(): void {
@@ -68,10 +68,9 @@ export class LinkedList implements Sortable {
       console.log("List is empty");
       return;
     }
+    let temp: MyNode | null = this.head;
     const arr: number[] = [];
-    arr.push(this.head.value);
-    let temp = this.head;
-    while (temp.next) {
+    while (temp) {
       arr.push(temp.value);
       temp = temp.next;
     }
