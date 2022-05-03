@@ -1,11 +1,13 @@
 import { WinAnalisis } from "./analyzers/WinAnaysis";
 import { CsvFileReader } from "./CsvFileReader";
 import { MatchReader } from "./MatchReader";
+import { ConsoleOutput } from "./reportTargets/ConsoleOutput";
+import { Summary } from "./Summary";
 
 const csv = new CsvFileReader("football.csv");
 const reader = new MatchReader(csv);
 reader.load();
 
-const manUnited = new WinAnalisis("Man United");
+const summary = new Summary(new WinAnalisis("Man United"), new ConsoleOutput());
 
-console.log(manUnited.run(reader.matches));
+summary.buildAndPrintReport(reader.matches);
