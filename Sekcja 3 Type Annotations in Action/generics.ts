@@ -39,3 +39,7 @@ function printHouseOrCar<T extends Printable>(arr: T[]) {
     arr[i].print();
   }
 }
+
+printHouseOrCar([new House(), new Car()]);
+printHouseOrCar([new Car(), new Car()]);
+printHouseOrCar([new House(), new House()]);
