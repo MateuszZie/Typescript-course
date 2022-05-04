@@ -7,3 +7,5 @@ class ArrayofAnything<T> {
 }
 
 const stringArr = new ArrayofAnything<string>(["a", "v", "c"]);
+
+const stringArr2 = new ArrayofAnything(["a", "v", "c"]);
