@@ -2,8 +2,14 @@ import { User } from "./models/User";
 
 const user = new User({});
 
-user.on("click", () => {});
-user.on("click", () => {});
-user.on("mouseone", () => {});
+user.on("click", () => {
+  console.log("change #1");
+});
+user.on("click", () => {
+  console.log("change #2");
+});
+user.on("mouseone", () => {
+  console.log("change #3");
+});
 
-console.log(user);
+user.trigger("click");
