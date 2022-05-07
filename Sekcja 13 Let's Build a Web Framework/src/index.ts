@@ -5,6 +5,6 @@ const user2 = new User({ name: "new recrd", age: 89 });
 
 user.set({ age: 36 });
 
-user.save();
+// user.sync.save();
 
 // user2.save();
