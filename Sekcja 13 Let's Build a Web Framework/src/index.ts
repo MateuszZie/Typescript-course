@@ -1,6 +1,6 @@
 import { User, UserProps } from "./models/User";
 
-const user = new User<UserProps>({ id: 1, name: "mat", age: 22 });
+const user = new User<UserProps>({ id: 1, name: "mateusz", age: 30 });
 
 console.log(user.get("id"));
 
@@ -21,3 +21,5 @@ const user2 = new User<UserProps>({ id: 2 });
 user2.fetch();
 
 console.log(user2);
+
+user.save();

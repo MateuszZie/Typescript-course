@@ -2,6 +2,7 @@
   "users": [
     {
       "id": 1,
+      "name": "mateusz",
       "age": 36
     },
     {
