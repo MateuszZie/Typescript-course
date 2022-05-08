@@ -18,4 +18,16 @@ export class User<T> {
   constructor(attr: T) {
     this.attributes = new Attributes(attr);
   }
+
+  get get() {
+    return this.attributes.get;
+  }
+
+  get on() {
+    return this.events.on;
+  }
+
+  get trigger() {
+    return this.events.trigger;
+  }
 }

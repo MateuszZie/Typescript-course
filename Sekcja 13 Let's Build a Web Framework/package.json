@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:db": "json-server -w db.json",
-    "start:parcel": "parcel index.html"
+    "start:parcel": "parcel index.html -p 1235"
   },
   "author": "Mateusz",
   "license": "ISC",

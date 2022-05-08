@@ -1,10 +1,11 @@
 import { User, UserProps } from "./models/User";
 
-const user = new User<UserProps>({ id: 1 });
-// const user2 = new User({ name: "new recrd", age: 89 });
+const user = new User<UserProps>({ id: 1, name: "mat", age: 22 });
 
-// user.set({ age: 36 });
+console.log(user.get("name"));
 
-// user.sync.save();
+user.on("click", () => {
+  console.log("Clicked");
+});
 
-// user2.save();
+user.trigger("click");
