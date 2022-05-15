@@ -4,18 +4,20 @@ interface HasId {
   id?: number;
 }
 
+const rootUrl = "http://localhost:3000/users";
+
 export class Sync<T extends HasId> {
   constructor(private rootUrl: string) {}
 
   fetch(id: number): AxiosPromise {
-    return axios.get(`${this.rootUrl}/${id}`);
+    return axios.get(`${rootUrl}/${id}`);
   }
 
   save(data: T): AxiosPromise {
     if (data.id) {
-      return axios.put(`${this.rootUrl}/${data.id}`, data);
+      return axios.put(`${rootUrl}/${data.id}`, data);
     } else {
-      return axios.post(this.rootUrl, data);
+      return axios.post(rootUrl, data);
     }
   }
 }
