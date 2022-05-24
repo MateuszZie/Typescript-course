@@ -25,17 +25,11 @@ export class Model<T extends HasId> {
     private events: Events
   ) {}
 
-  get get() {
-    return this.attributes.get;
-  }
+  get = this.attributes.get;
 
-  get on() {
-    return this.events.on;
-  }
+  on = this.events.on;
 
-  get trigger() {
-    return this.events.trigger;
-  }
+  trigger = this.events.trigger;
 
   set(update: T): void {
     this.attributes.set(update);
