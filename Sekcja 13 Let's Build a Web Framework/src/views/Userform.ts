@@ -9,9 +9,9 @@ export class UserForm {
     };
   }
 
-  onSetAgeClicked(): void {
-    console.log("Set Age clicked");
-  }
+  onSetAgeClicked = (): void => {
+    this.model.setRandomAge();
+  };
 
   eventBanding(fragment: DocumentFragment) {
     const eventMap = this.eventMap();
