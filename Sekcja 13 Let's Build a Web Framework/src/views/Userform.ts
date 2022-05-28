@@ -5,9 +5,12 @@ export class UserForm {
 
   eventMap(): { [key: string]: () => void } {
     return {
-      "click:button": this.onButtonClick,
-      "mouseenter:h1": this.mouseHoverH1,
+      "click:.age-set": this.onSetAgeClicked,
     };
+  }
+
+  onSetAgeClicked(): void {
+    console.log("Set Age clicked");
   }
 
   eventBanding(fragment: DocumentFragment) {
@@ -22,20 +25,14 @@ export class UserForm {
     }
   }
 
-  onButtonClick(): void {
-    console.log("Hi there!");
-  }
-
-  mouseHoverH1(): void {
-    console.log("H1 howered");
-  }
-
   template(): string {
     return `<div> <h1>
         User Form</h1>
         <div>User Name: ${this.model.get("name")}</div>
         <div>User Age: ${this.model.get("age")}</div>
-        <input /> <button>Click Me</button>
+        <input />
+        <button>Click Me</button>
+        <button class="age-set">Set Random Age</button>
         </div>`;
   }
 
