@@ -6,8 +6,11 @@ export abstract class View<T extends Model<K>, K> {
     this.bindModel();
   }
 
-  abstract eventMap(): { [kay: string]: () => void };
   abstract template(): string;
+
+  eventMap(): { [kay: string]: () => void } {
+    return {};
+  }
 
   bindModel(): void {
     this.model.on("change", () => {
