@@ -1,5 +1,5 @@
 import { Attributes } from "./Attributes";
-import { Collections } from "./Collections";
+import { UserCollections } from "./CollectionsUser";
 import { Eventing } from "./Eventing";
 import { Model } from "./Model";
 import { Sync } from "./Sync";
@@ -17,8 +17,8 @@ export class User extends Model<UserProps> {
     return new User(new Attributes(attr), new Sync(rootUrl), new Eventing());
   }
 
-  static buildUsersCollection(): Collections<User, UserProps> {
-    return new Collections<User, UserProps>(rootUrl, (json: UserProps) =>
+  static buildUsersCollection(): UserCollections {
+    return new UserCollections(rootUrl, (json: UserProps) =>
       User.buildUser(json)
     );
   }
