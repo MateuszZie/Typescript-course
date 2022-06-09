@@ -5,22 +5,24 @@ class Boat {
     return `This color is ${this.color}`;
   }
 
-  @logError
+  @logError("error in pilot method")
   pilot(): void {
     throw new Error();
     console.log("swish");
   }
 }
 
-function logError(target: any, key: string, desc: PropertyDescriptor): void {
-  const method = desc.value;
+function logError(errorMessage: string) {
+  return function (target: any, key: string, desc: PropertyDescriptor): void {
+    const method = desc.value;
 
-  desc.value = function () {
-    try {
-      method();
-    } catch {
-      console.log("error in pilot method");
-    }
+    desc.value = function () {
+      try {
+        method();
+      } catch {
+        console.log(errorMessage);
+      }
+    };
   };
 }
 
