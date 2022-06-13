@@ -1,11 +1,24 @@
 import "reflect-metadata";
 
+@controller
 class Plain {
   color: string = "red";
+
+  @get("/login")
+  fly(): void {
+    console.log("wrrrrr");
+  }
 }
 
-Reflect.defineMetadata("myKey", "Hi There", Plain, "color");
+function get(path: string) {
+  return function (target: Plain, key: string) {
+    Reflect.defineMetadata("path", path, target, key);
+  };
+}
 
-const myKey = Reflect.getMetadata("myKey", Plain, "color");
-
-console.log(myKey);
+function controller(target: typeof Plain): void {
+  for (let key in target.prototype) {
+    const path = Reflect.getMetadata("path", target.prototype, key);
+    console.log(path);
+  }
+}
