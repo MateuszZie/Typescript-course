@@ -2,8 +2,8 @@ import { Request, Response } from "express";
 import { get } from "./decorators/routes";
 import { Controller } from "./decorators/controller";
 
-@Controller("/")
-class LoginController {
+@Controller("/auth")
+export class LoginController {
   @get("/login")
   getLogin(req: Request, res: Response) {
     res.send(`<form method="POST">
