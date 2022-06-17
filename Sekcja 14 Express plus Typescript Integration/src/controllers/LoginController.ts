@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { get } from "./decorators/routes";
+import { Controller } from "./decorators/controller";
 
 @Controller("/")
 class LoginController {
