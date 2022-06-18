@@ -34,4 +34,9 @@ export class LoginController {
       res.send("Inwalid email or password");
     }
   }
+  @get("/loggout")
+  getLoggout(req: Request, res: Response) {
+    req.session = undefined;
+    res.redirect("/");
+  }
 }
