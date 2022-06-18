@@ -4,8 +4,21 @@ import { AppRouter } from "../../AppRouter";
 import { MetaDataKeys } from "./MetaDataKeys";
 import { Methods } from "./Methods";
 
-function bodyValidators(key: string): RequestHandler {
-  return function (req: Request, res: Response, next: NextFunction) {};
+function bodyValidators(keys: string): RequestHandler {
+  return function (req: Request, res: Response, next: NextFunction) {
+    if (!req.body) {
+      res.status(422).send("invalid Request");
+      return;
+    }
+
+    for (let key of keys) {
+      if (!req.body[key]) {
+        res.status(422).send("invalid Request");
+        return;
+      }
+    }
+    next();
+  };
 }
 
 export function Controller(routerPrefix: string) {
@@ -26,8 +39,17 @@ export function Controller(routerPrefix: string) {
       const middlewares =
         Reflect.getMetadata(MetaDataKeys.middleware, target.prototype, key) ||
         [];
+
+      const validator =
+        Reflect.getMetadata(MetaDataKeys.validator, target.prototype, key) ||
+        [];
       if (path) {
-        router[method](`${routerPrefix}${path}`, ...middlewares, routHandler);
+        router[method](
+          `${routerPrefix}${path}`,
+          ...middlewares,
+          validator,
+          routHandler
+        );
       }
     }
   };
