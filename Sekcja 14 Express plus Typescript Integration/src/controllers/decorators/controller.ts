@@ -47,7 +47,7 @@ export function Controller(routerPrefix: string) {
         router[method](
           `${routerPrefix}${path}`,
           ...middlewares,
-          validator,
+          bodyValidators(validator),
           routHandler
         );
       }
