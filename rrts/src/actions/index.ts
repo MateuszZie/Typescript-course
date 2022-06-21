@@ -10,11 +10,16 @@ interface ToDo {
   completed: boolean;
 }
 
+interface FetchTodosActions {
+  type: Types.fetchTodos;
+  peyload: ToDo[];
+}
+
 export const fetchTodos = () => {
   return async (dispatch: Dispatch) => {
-    const response = await axios.get<ToDo>(url);
+    const response = await axios.get<ToDo[]>(url);
 
-    dispatch({
+    dispatch<FetchTodosActions>({
       type: Types.fetchTodos,
       peyload: response.data,
     });
