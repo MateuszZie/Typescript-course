@@ -4,13 +4,13 @@ import { Types } from "./types";
 
 const url = "https://jsonplaceholder.typicode.com/todos";
 
-interface ToDo {
+export interface ToDo {
   id: number;
   title: string;
   completed: boolean;
 }
 
-interface FetchTodosActions {
+export interface FetchTodosActions {
   type: Types.fetchTodos;
   peyload: ToDo[];
 }
