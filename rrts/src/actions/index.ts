@@ -15,6 +15,11 @@ export interface FetchTodosActions {
   peyload: ToDo[];
 }
 
+export interface DeleteTodo {
+  type: Types.deleteTodo;
+  payload: number;
+}
+
 export const fetchTodos = () => {
   return async (dispatch: Dispatch) => {
     const response = await axios.get<ToDo[]>(url);
@@ -23,5 +28,12 @@ export const fetchTodos = () => {
       type: Types.fetchTodos,
       peyload: response.data,
     });
+  };
+};
+
+export const deleteTodo = (id: number): DeleteTodo => {
+  return {
+    type: Types.deleteTodo,
+    payload: id,
   };
 };
