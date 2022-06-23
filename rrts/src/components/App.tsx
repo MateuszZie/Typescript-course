@@ -10,9 +10,18 @@ interface ApProps {
 }
 
 class _App extends React.Component<ApProps> {
+  state = { fetching: false };
+
   onButtonClick = (): void => {
     this.props.fetchTodos();
+    this.setState({ fetching: true });
   };
+
+  componentDidUpdate(prevProps: ApProps): void {
+    if (!prevProps.todos.length && this.props.todos.length) {
+      this.setState({ fetching: false });
+    }
+  }
 
   onTodoClick = (id: number): void => {
     this.props.deleteTodo(id);
@@ -32,6 +41,7 @@ class _App extends React.Component<ApProps> {
     return (
       <div>
         <button onClick={this.onButtonClick}>Fetch</button>
+        {this.state.fetching ? "Loading" : null}
         {this.renderList()}
       </div>
     );
